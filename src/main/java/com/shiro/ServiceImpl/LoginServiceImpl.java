@@ -1,6 +1,7 @@
 package com.shiro.ServiceImpl;
 
 import com.shiro.Entity.LoginResult;
+import com.shiro.Entity.User;
 import com.shiro.Service.LoginService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -51,9 +52,28 @@ public class LoginServiceImpl implements LoginService {
         // 4、认证
         try {
             currentUser.login(token);   // 传到MyAuthorizingRealm类中的方法进行认证
-            Session session = currentUser.getSession();
-            session.setAttribute("username", username);
-            loginResult.setLogin(true);
+            // 用户名，密码匹配，判断用户状态
+            User user = (User) currentUser.getPrincipals().getPrimaryPrincipal();
+            if(user.getState() == 0){
+                msg = "账号未认证！";
+                loginResult.setLogin(false);
+                loginResult.setResult(msg);
+            }
+            else if(user.getState() == 1){
+                Session session = currentUser.getSession();
+                session.setAttribute("username", username);
+                loginResult.setLogin(true);
+            }
+            else if(user.getState() == 2){
+                msg = "账号已锁定！";
+                loginResult.setLogin(false);
+                loginResult.setResult(msg);
+            }
+            else{
+                msg = "账号状态异常！";
+                loginResult.setLogin(false);
+                loginResult.setResult(msg);
+            }
             return loginResult;
         } catch (UnknownAccountException e) {
             e.printStackTrace();
@@ -64,10 +84,8 @@ public class LoginServiceImpl implements LoginService {
             e.printStackTrace();
             msg="用户验证失败";
         }
-
         loginResult.setLogin(false);
         loginResult.setResult(msg);
-
         return loginResult;
     }
 
