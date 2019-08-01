@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
     /**
-     * 用户查询.
+     * 用户查询
      * @return
      */
     @RequestMapping("/userList")
@@ -25,7 +25,7 @@ public class UserController {
         return "/user/userList";
     }
     /**
-     * 用户添加;
+     * 用户添加
      * @return
      */
     @RequestMapping("/userAdd")
@@ -35,7 +35,7 @@ public class UserController {
     }
 
     /**
-     * 用户删除;
+     * 用户删除
      * @return
      */
     @RequestMapping("/userDel")

@@ -50,12 +50,11 @@ public class LoginServiceImpl implements LoginService {
 
         // 4、认证
         try {
-            currentUser.login(token);// 传到MyAuthorizingRealm类中的方法进行认证
+            currentUser.login(token);   // 传到MyAuthorizingRealm类中的方法进行认证
             Session session = currentUser.getSession();
             session.setAttribute("username", username);
             loginResult.setLogin(true);
             return loginResult;
-            //return "/index";
         } catch (UnknownAccountException e) {
             e.printStackTrace();
             msg = "账号不存在！";

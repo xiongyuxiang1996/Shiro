@@ -27,9 +27,9 @@ public class Role {
     // 用户 - 角色关系定义;
     @ManyToMany
     @JoinTable(name="UserRole",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="uid")})
-    private List<User> users;// 一个角色对应多个用户
+    private List<User> users;                   // 一个角色对应多个用户
 
-    //角色 -- 权限关系：多对多关系;
+    // 角色 -- 权限关系：多对多关系;
     @ManyToMany(fetch= FetchType.EAGER)
     @JoinTable(name="RolePermission",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="permissionId")})
     private List<Permission> permissions;

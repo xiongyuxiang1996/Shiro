@@ -47,15 +47,19 @@ public class ShiroRealm extends AuthorizingRealm {
     // 主要是用来进行身份认证的，也就是说验证用户输入的账号和密码是否正确
     protected SimpleAuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         System.out.println("身份认证.............");
-        // 获取用户的输入的账号.
+        // 获取用户的输入的账号
         String username = (String)token.getPrincipal();
-        // 通过username从数据库中查找 User对象.
+        // 通过username从数据库中查找 User对象
         // 实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
         User user = userService.findByUsername(username);
         if(user == null){
             return null;
         }
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user,user.getPassword(),ByteSource.Util.bytes(user.getCredentialsSalt()),getName());
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
+                user,
+                user.getPassword(),
+                ByteSource.Util.bytes(user.getCredentialsSalt()),
+                getName());
         return authenticationInfo;
     }
 

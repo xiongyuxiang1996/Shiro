@@ -22,19 +22,19 @@ public class User {
     @GeneratedValue(generator = "generator")
     private Integer uid;
     @Column(nullable = false)
-    private String privilege;           //权限名称（管理员等）
+    private String privilege;           // 权限名称（管理员等）
     @Column(nullable = false, unique = true)
-    private String username;            //登录用户名
+    private String username;            // 登录用户名
     @Column(nullable = false)
-    private String password;            //登陆密码
-    private String salt;                //加密密码的盐
-    private byte state;                 //用户状态（0：创建未认证；1：正常状态；2：用户被锁定）
+    private String password;            // 登陆密码
+    private String salt;                // 加密密码的盐
+    private byte state;                 // 用户状态（0：创建未认证；1：正常状态；2：用户被锁定）
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime createTime;   //创建时间
+    private LocalDateTime createTime;   // 创建时间
 
-    @ManyToMany(fetch= FetchType.EAGER) //立即从数据库中进行加载数据;
+    @ManyToMany(fetch= FetchType.EAGER) // 立即从数据库中进行加载数据;
     @JoinTable(name = "UserRole", joinColumns = { @JoinColumn(name = "uid") }, inverseJoinColumns ={@JoinColumn(name = "roleId") })
-    private List<Role> roleList;     // 一个用户具有多个角色
+    private List<Role> roleList;        // 一个用户具有多个角色
 
     public Integer getUid() {
         return uid;

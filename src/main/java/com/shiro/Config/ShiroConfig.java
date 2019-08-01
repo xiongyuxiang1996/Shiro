@@ -45,8 +45,7 @@ public class ShiroConfig {
 
     /**
      * 凭证匹配器
-     * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了
-     * ）
+     * （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了）
      * @return
      */
     @Bean
@@ -54,7 +53,7 @@ public class ShiroConfig {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
         // 散列算法：这里使用MD5算法
         hashedCredentialsMatcher.setHashAlgorithmName("md5");
-        //散列的次数，比如散列两次，相当于md5(md5(""))
+        // 散列的次数，比如散列两次，相当于md5(md5(""))
         hashedCredentialsMatcher.setHashIterations(2);
         return hashedCredentialsMatcher;
     }
@@ -74,8 +73,8 @@ public class ShiroConfig {
     }
 
     /**
-     *  开启shiro aop注解支持.
-     *  使用代理方式;所以需要开启代码支持;
+     * 开启shiro aop注解支持
+     * 使用代理方式;所以需要开启代码支持
      * @param securityManager
      * @return
      */
