@@ -40,7 +40,7 @@ public class LoginServiceImpl implements LoginService {
         Subject currentUser = SecurityUtils.getSubject();
 
         // 2、判断当前用户是否登录
-        if (currentUser.isAuthenticated() == false) {
+        if (currentUser.isAuthenticated()) {
             loginResult.setLogin(false);
             loginResult.setResult("当前账户已登陆！");
             return loginResult;
@@ -82,7 +82,7 @@ public class LoginServiceImpl implements LoginService {
             msg = "密码不正确！";
         } catch (AuthenticationException e) {
             e.printStackTrace();
-            msg="用户验证失败";
+            msg = "用户验证失败！";
         }
         loginResult.setLogin(false);
         loginResult.setResult(msg);
