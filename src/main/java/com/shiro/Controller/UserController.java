@@ -16,22 +16,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
     /**
-     * 用户查询
+     * 用户管理
      * @return
      */
     @RequestMapping("/userList")
     @RequiresPermissions("user:view")
-    public String userInfo(){
-        return "/user/userList";
+    public String userList(){
+        return "/menu/userList";
     }
+
     /**
      * 用户添加
      * @return
      */
     @RequestMapping("/userAdd")
     @RequiresPermissions("user:add")
-    public String userInfoAdd(){
-        return "/user/userAdd";
+    public String userAdd(){
+        return "/menu/userAdd";
     }
 
     /**
@@ -41,6 +42,7 @@ public class UserController {
     @RequestMapping("/userDel")
     @RequiresPermissions("user:del")
     public String userDel(){
-        return "/user/userDel";
+        return "/menu/userDel";
     }
+
 }
