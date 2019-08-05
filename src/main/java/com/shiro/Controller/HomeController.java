@@ -49,7 +49,7 @@ public class HomeController {
     @RequestMapping("/logout")
     public String logOut(HttpSession session) {
         loginService.logout();
-        return "/user/login";
+        return "/login";
     }
 
     // 没有权限
