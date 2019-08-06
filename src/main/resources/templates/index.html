@@ -2,9 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>主页</title>
+    <link rel="stylesheet" href="../css/index.css"/>
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-    <h1>首页</h1>
+    <div id="top">
+        <img id="logo">
+        <ul id="menu_top">
+            <li id="user_center" class="menu_list" target="iframe_left">用户中心</li>
+        </ul>
+        <div id="quit">
+            <img id="userphoto">
+            <div id="username">用户名</div>
+            <shiro:principal type="com.zl.po.User" property="username"/>
+            <img id="userarrow">
+        </div>
+        <div id="quitlist">
+            <ul>
+                <li id="userinfo">个人信息</li>
+                <li id="changepsw">修改密码</li>
+                <li id="quitlogin">退出登录</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="left">
+        目录
+    </div>
+
+    <div id="right">
+        <iframe id="iframe" name="iframe" src="/hello" width="100%" onload="changeFrameHeight()" frameborder="0"></iframe>
+    </div>
+
+    <script type="text/javascript" src="../js/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,134 @@
+*{
+    margin:0;
+    padding:0;
+}
+ul,li{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+html{
+    height:100%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#top{
+    width: 100%;
+    height: 60px;
+    position: relative;
+    background-color: #2A3F54;
+}
+#left{
+    width: 220px;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    font-size: 0;
+    background-color: #455667;
+}
+#right{
+    position: absolute;
+    top: 60px;
+    left: 220px;
+    right: 0;
+    bottom: 0;
+    font-size: 0;
+    background-color: #F7F7F7;
+}
+#logo{
+    width: 220px;
+    height: 100%;
+    float: left;
+    background-size: 100% 100%;
+}
+#menu_top{
+    width: 240px;
+    height: 40px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 220px;
+    bottom: 0;
+    text-align: center;
+}
+#menu_top li{
+    width: 120px;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    color: #E6E6E6;
+    font-size: 18px;
+    cursor: pointer;
+}
+#menu_top li:nth-child(1){
+    border-bottom: 3px solid #E6E6E6;
+}
+#menu_top li:hover{
+    background-color: #223243;
+}
+#quit{
+    height: 40px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 20px;
+    bottom: 0;
+    line-height: 40px;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+#userphoto{
+    width: 40px;
+    height: 40px;
+    float: left;
+    background-size: 100% 100%;
+}
+#username{
+    height: 40px;
+    float: left;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+#userarrow{
+    width: 14px;
+    height: 14px;
+    float: left;
+    margin-top: 13px;
+    background-size: 100% 100%;
+}
+#quitlist{
+    width: 120px;
+    height: 98px;
+    position: absolute;
+    top: 62px;
+    right: 20px;
+    z-index:999;
+    box-shadow: 2px 2px 5px #708090, -2px 2px 5px #708090;
+    background-color: #FFFFFF;
+    display: none;
+}
+#quitlist ul{
+    padding-top: 3px;
+}
+#quitlist ul li{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+#quitlist ul li:nth-child(2){
+    border-top: 1px dashed #CCCCCC;
+    border-bottom: 1px dashed #CCCCCC;
+}
+#quitlist ul li:hover{
+    background-color: #E4F0F1;
+}
