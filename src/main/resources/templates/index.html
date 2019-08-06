@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
     <meta charset="UTF-8">
     <title>主页</title>
     <link rel="stylesheet" href="../css/index.css"/>
+    <link rel="stylesheet" href="../css/catalog.css"/>
     <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
@@ -13,10 +15,14 @@
             <li id="user_center" class="menu_list" target="iframe_left">用户中心</li>
         </ul>
         <div id="quit">
-            <img id="userphoto">
-            <div id="username">用户名</div>
-            <shiro:principal type="com.zl.po.User" property="username"/>
-            <img id="userarrow">
+            <img id="userphoto" src="../img/userphoto.png">
+            <div id="privilege">
+                [<span shiro:principal property="privilege"></span>]
+            </div>
+            <div id="username">
+                <span shiro:principal property="username"></span>
+            </div>
+            <img id="userarrow" src="../img/arrow.png">
         </div>
         <div id="quitlist">
             <ul>
@@ -28,7 +34,47 @@
     </div>
 
     <div id="left">
-        目录
+        <ul id="list_menu">
+            <shiro:hasPermission name="user:view">
+                <li>
+                    <div class="list1">
+                        <div class="pic_list1" style="background-image: url('../img/usermanage.png')"></div>用户管理<div class="pic_list1_arrow"></div>
+                    </div>
+                    <ul class="list2">
+                        <li>
+                            <div class="pic_list2"></div>
+                            <a href="/user/userList" target="iframe">所有用户</a>
+                        </li>
+                    </ul>
+                </li>
+            </shiro:hasPermission>
+            <shiro:hasPermission name="role:view">
+                <li>
+                    <div class="list1">
+                        <div class="pic_list1" style="background-image: url('../img/rolemanage.png')"></div>角色管理<div class="pic_list1_arrow"></div>
+                    </div>
+                    <ul class="list2">
+                        <li>
+                            <div class="pic_list2"></div>
+                            <a href="/role/roleList" target="iframe">角色管理</a>
+                        </li>
+                    </ul>
+                </li>
+            </shiro:hasPermission>
+            <shiro:hasPermission name="permission:view">
+                <li>
+                    <div class="list1">
+                        <div class="pic_list1" style="background-image: url('../img/permissionmanage.png')"></div>权限管理<div class="pic_list1_arrow"></div>
+                    </div>
+                    <ul class="list2">
+                        <li>
+                            <div class="pic_list2"></div>
+                            <a href="/permission/permissionList" target="iframe">权限管理</a>
+                        </li>
+                    </ul>
+                </li>
+            </shiro:hasPermission>
+        </ul>
     </div>
 
     <div id="right">
@@ -36,5 +82,6 @@
     </div>
 
     <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/catalog.js"></script>
 </body>
 </html>

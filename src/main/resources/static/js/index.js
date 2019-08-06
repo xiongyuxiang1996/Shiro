@@ -28,12 +28,12 @@ iframe.onload = function() {
 
 //个人信息
 $("#userinfo").bind("click",function(){
-    // $("#iframe_right").attr("src","/ysfwpt/ysfwpt_home_userinfo?" + username);
+    // $("#iframe").attr("src","/ysfwpt/ysfwpt_home_userinfo?" + username);
 });
 
 //修改密码
 $("#changepsw").bind("click",function(){
-    // $("#iframe_right").attr("src","/ysfwpt/ysfwpt_home_password?" + username);
+    // $("#iframe").attr("src","/ysfwpt/ysfwpt_home_password?" + username);
 });
 
 //退出

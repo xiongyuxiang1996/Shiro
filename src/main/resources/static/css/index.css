@@ -28,7 +28,6 @@ body{
     top: 60px;
     bottom: 0;
     left: 0;
-    font-size: 0;
     background-color: #455667;
 }
 #right{
@@ -37,7 +36,6 @@ body{
     left: 220px;
     right: 0;
     bottom: 0;
-    font-size: 0;
     background-color: #F7F7F7;
 }
 #logo{
@@ -91,17 +89,23 @@ body{
     float: left;
     background-size: 100% 100%;
 }
+#privilege{
+    height: 40px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 2px;
+}
 #username{
     height: 40px;
     float: left;
     margin-left: 2px;
-    margin-right: 2px;
+    margin-right: 5px;
 }
 #userarrow{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     float: left;
-    margin-top: 13px;
+    margin-top: 12px;
     background-size: 100% 100%;
 }
 #quitlist{
