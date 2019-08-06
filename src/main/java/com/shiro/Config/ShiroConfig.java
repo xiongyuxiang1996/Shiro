@@ -1,5 +1,6 @@
 package com.shiro.Config;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.shiro.Dao.ShiroRealm;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -97,5 +98,10 @@ public class ShiroConfig {
         r.setExceptionAttribute("exception");   // Default is "exception"
         //r.setWarnLogCategory("example.MvcLogger");    // No default
         return r;
+    }
+
+    @Bean
+    public ShiroDialect shiroDialect() {
+        return new ShiroDialect();
     }
 }
