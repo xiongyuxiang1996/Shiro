@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 @Controller
@@ -45,9 +44,15 @@ public class HomeController {
         }
     }
 
+    // 欢迎
+    @RequestMapping("/hello")
+    public String hello() {
+        return "/hello";
+    }
+
     // 注销
     @RequestMapping("/logout")
-    public String logOut(HttpSession session) {
+    public String logout() {
         loginService.logout();
         return "/login";
     }
