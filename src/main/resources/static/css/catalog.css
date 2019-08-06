@@ -1,0 +1,80 @@
+/*目录*/
+a{
+    color: #FFFFFF;
+    font-size: 12px;
+    text-decoration:none;
+}
+#list_menu{
+    width: 100%;
+    height: 100%;
+}
+.list1{
+    height: 50px;
+    line-height: 50px;
+    padding-left: 40px;
+    position: relative;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+.list1:hover{
+    background-color: #667687 !important;
+}
+.list2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+}
+.list2 li{
+    height: 35px;
+    line-height: 35px;
+    padding-left: 50px;
+    position: relative;
+    color: #FFFFFF;
+    font-size: 12px;
+    cursor: pointer;
+}
+.list2 li:hover{
+    background-color: #667687 !important;
+}
+.selected_level1{
+    background-color: #55677A;
+    border-right: solid 5px #00BC9C;
+}
+.selected_level2{
+    background-color: #55677A;
+    border-right: solid 3px #00BC9C;
+}
+.pic_list1{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin: auto;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    background-size: 100% 100%;
+}
+.pic_list1_arrow{
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    margin: auto;
+    top: 13px;
+    left: 190px;
+    bottom: 13px;
+    transition:0.5s;
+    background-size: 100% 100%;
+    background-image: url("../img/arrow.png");
+}
+.pic_list2{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin: auto;
+    top: 5px;
+    left: 15px;
+    bottom: 5px;
+    background-size: 100% 100%;
+    /*background-image: url("../img/user_level2.png");*/
+}
