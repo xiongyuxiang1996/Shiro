@@ -22,7 +22,7 @@ public class UserController {
     @RequestMapping("/userList")
     @RequiresPermissions("user:list")
     public String userList(){
-        return "/menu/userList";
+        return "/frame/user/userList";
     }
 
     /**
@@ -32,7 +32,7 @@ public class UserController {
     @RequestMapping("/userAdd")
     @RequiresPermissions("user:add")
     public String userAdd(){
-        return "/menu/userAdd";
+        return "/frame/user/userAdd";
     }
 
     /**
@@ -42,7 +42,7 @@ public class UserController {
     @RequestMapping("/userDel")
     @RequiresPermissions("user:del")
     public String userDel(){
-        return "/menu/userDel";
+        return "/frame/user/userDel";
     }
 
 }

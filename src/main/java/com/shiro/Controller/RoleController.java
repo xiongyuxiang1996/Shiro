@@ -22,6 +22,6 @@ public class RoleController {
     @RequestMapping("/roleList")
     @RequiresPermissions("role:list")
     public String roleList(){
-        return "/menu/roleList";
+        return "/frame/role/roleList";
     }
 }

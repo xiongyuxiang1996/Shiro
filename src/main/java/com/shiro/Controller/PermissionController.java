@@ -22,6 +22,6 @@ public class PermissionController {
     @RequestMapping("/permissionList")
     @RequiresPermissions("permission:list")
     public String permissionList(){
-        return "/menu/permissionList";
+        return "/frame/permission/permissionList";
     }
 }
