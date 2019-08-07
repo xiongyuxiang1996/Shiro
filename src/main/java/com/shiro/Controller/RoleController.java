@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/role")
 public class RoleController {
     /**
-     * 角色管理
+     * 角色列表
      * @return
      */
     @RequestMapping("/roleList")
-    @RequiresPermissions("role:view")
+    @RequiresPermissions("role:list")
     public String roleList(){
         return "/menu/roleList";
     }

@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/permission")
 public class PermissionController {
     /**
-     * 权限管理
+     * 权限列表
      * @return
      */
     @RequestMapping("/permissionList")
-    @RequiresPermissions("permission:view")
+    @RequiresPermissions("permission:list")
     public String permissionList(){
         return "/menu/permissionList";
     }

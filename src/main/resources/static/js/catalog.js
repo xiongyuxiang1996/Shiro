@@ -25,5 +25,5 @@ $(".list2 li").bind("click",function(){
     //清除所有一级目录颜色
     $("#list_menu li").siblings().find(".list1").removeClass("selected_level1");
     //该点击二级目录的一级目录颜色加深
-    $(this).parent().parent().find(".list1").addClass('selected_level1');
+    $(this).parent().parent().parent().find(".list1").addClass('selected_level1');
 });

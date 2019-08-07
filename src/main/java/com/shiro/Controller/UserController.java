@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
     /**
-     * 用户管理
+     * 用户列表
      * @return
      */
     @RequestMapping("/userList")
-    @RequiresPermissions("user:view")
+    @RequiresPermissions("user:list")
     public String userList(){
         return "/menu/userList";
     }
