@@ -50,13 +50,6 @@ public class HomeController {
         return "/hello";
     }
 
-    // 注销
-    @RequestMapping("/logout")
-    public String logout() {
-        loginService.logout();
-        return "/login";
-    }
-
     // 没有权限
     @RequestMapping("/403")
     public String unauthorizedRole(){
