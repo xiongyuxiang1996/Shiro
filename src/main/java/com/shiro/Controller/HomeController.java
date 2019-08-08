@@ -23,7 +23,7 @@ public class HomeController {
 
     // 登陆页面
     @RequestMapping(value = "/login",method = RequestMethod.GET)
-    public String toLogin(Map<String, Object> map, HttpServletRequest request) {
+    public String toLogin() {
         loginService.logout();
         return "/login";
     }
@@ -35,6 +35,7 @@ public class HomeController {
         String password = request.getParameter("password");
         LoginResult loginResult = loginService.login(username,password);
         if(loginResult.isLogin()) {
+            request.getSession().setAttribute("username",username);
             return "/index";
         }
         else {
