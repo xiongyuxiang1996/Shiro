@@ -9,7 +9,10 @@
 </head>
 <body>
     <div id="top">
-        <img id="logo">
+        <!--<img id="logo">-->
+        <div id="logo">
+            <span th:text="${session.username}"></span>
+        </div>
         <ul id="menu_top">
             <li id="user_center" class="menu_list" target="iframe_left">用户中心</li>
         </ul>

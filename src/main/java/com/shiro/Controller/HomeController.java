@@ -36,7 +36,7 @@ public class HomeController {
         LoginResult loginResult = loginService.login(username,password);
         if(loginResult.isLogin()) {
             request.getSession().setAttribute("username",username);
-            return "/index";
+            return "redirect:index";
         }
         else {
             map.put("msg",loginResult.getResult());

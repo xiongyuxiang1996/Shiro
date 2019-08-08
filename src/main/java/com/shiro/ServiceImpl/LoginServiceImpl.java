@@ -38,12 +38,12 @@ public class LoginServiceImpl implements LoginService {
         // 1、获取Subject实例对象
         Subject currentUser = SecurityUtils.getSubject();
 
-//        // 2、判断当前用户是否登录
-//        if (currentUser.isAuthenticated()) {
-//            loginResult.setLogin(false);
-//            loginResult.setResult("当前账户已登陆！");
-//            return loginResult;
-//        }
+        // 2、判断当前用户是否登录
+        if (currentUser.isAuthenticated()) {
+            loginResult.setLogin(false);
+            loginResult.setResult("当前账户已登陆！");
+            return loginResult;
+        }
 
         // 3、将用户名和密码封装到UsernamePasswordToken
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
