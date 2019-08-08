@@ -50,10 +50,4 @@ public class HomeController {
     public String hello() {
         return "/hello";
     }
-
-    // 没有权限
-    @RequestMapping("/403")
-    public String unauthorizedRole(){
-        return "/403";
-    }
 }
