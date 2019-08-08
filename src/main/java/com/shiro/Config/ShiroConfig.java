@@ -29,6 +29,8 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/css/**", "anon");
         filterChainDefinitionMap.put("/js/**", "anon");
         filterChainDefinitionMap.put("/img/**", "anon");
+        // 开放登陆接口，不然第一次登陆时会有权限问题
+        filterChainDefinitionMap.put("/login", "anon");
         // 配置退出过滤器，其中的具体的退出代码Shiro已经替我们实现了
         filterChainDefinitionMap.put("/logout", "logout");
         // 过滤链定义，从上向下顺序执行，一般将/**放在最为下边
