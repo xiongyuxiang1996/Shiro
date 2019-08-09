@@ -1,8 +1,6 @@
 package com.shiro.Controller;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,16 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Time 17:51
  * @Description
  */
-@Controller
-@RequestMapping("/permission")
+@RestController
 public class PermissionController {
-    /**
-     * 权限列表
-     * @return
-     */
-    @RequestMapping("/permissionList")
-    @RequiresPermissions("permission:list")
-    public String permissionList(){
-        return "/frame/permission/permissionList";
-    }
+
 }
