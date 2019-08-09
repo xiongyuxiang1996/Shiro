@@ -1,11 +1,12 @@
 package com.shiro.Entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,8 +31,9 @@ public class User {
     private String password;            // 登陆密码
     private String salt;                // 加密密码的盐
     private byte state;                 // 用户状态（0：创建未认证；1：正常状态；2：用户被锁定）
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime createTime;   // 创建时间
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date createTime;            // 创建时间
 
     @ManyToMany(fetch= FetchType.EAGER) // 立即从数据库中进行加载数据;
     @JoinTable(name = "UserRole", joinColumns = { @JoinColumn(name = "uid") }, inverseJoinColumns ={@JoinColumn(name = "roleId") })
@@ -86,11 +88,11 @@ public class User {
         this.state = state;
     }
 
-    public LocalDateTime getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
@@ -106,6 +108,7 @@ public class User {
      * 密码盐. 重新对盐重新进行了定义，用户名+salt，这样就不容易被破解，可以采用多种方式定义加盐
      * @return
      */
+    @JsonIgnore
     public String getCredentialsSalt(){
         return this.username + this.salt;
     }
