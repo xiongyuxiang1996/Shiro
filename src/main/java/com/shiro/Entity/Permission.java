@@ -1,5 +1,6 @@
 package com.shiro.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -32,6 +33,7 @@ public class Permission {
     // 角色 -- 权限关系：多对多关系;
     @ManyToMany
     @JoinTable(name="RolePermission",joinColumns={@JoinColumn(name="permissionId")},inverseJoinColumns={@JoinColumn(name="roleId")})
+    @JsonIgnore
     private List<Role> roles;
 
     public Integer getPermissionId() {

@@ -1,5 +1,6 @@
 package com.shiro.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -34,6 +35,7 @@ public class User {
 
     @ManyToMany(fetch= FetchType.EAGER) // 立即从数据库中进行加载数据;
     @JoinTable(name = "UserRole", joinColumns = { @JoinColumn(name = "uid") }, inverseJoinColumns ={@JoinColumn(name = "roleId") })
+    @JsonIgnore
     private List<Role> roleList;        // 一个用户具有多个角色
 
     public Integer getUid() {
