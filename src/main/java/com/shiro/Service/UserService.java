@@ -2,6 +2,8 @@ package com.shiro.Service;
 
 import com.shiro.Entity.User;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -11,6 +13,7 @@ import com.shiro.Entity.User;
  * @Description
  */
 public interface UserService {
+    List<User> findAll();
     User findByUsername(String username);
 }
 
