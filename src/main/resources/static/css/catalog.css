@@ -65,7 +65,7 @@ a{
     bottom: 13px;
     transition:0.5s;
     background-size: 100% 100%;
-    background-image: url("../img/arrow.png");
+    background-image: url("/img/arrow.png");
 }
 .pic_list2{
     width: 30px;
@@ -76,5 +76,4 @@ a{
     left: 15px;
     bottom: 5px;
     background-size: 100% 100%;
-    /*background-image: url("../img/user_level2.png");*/
 }

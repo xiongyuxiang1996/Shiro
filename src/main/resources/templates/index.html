@@ -17,14 +17,14 @@
             <li id="user_center" class="menu_list" target="iframe_left">用户中心</li>
         </ul>
         <div id="quit">
-            <img id="userphoto" src="../img/userphoto.png">
+            <img id="userphoto" src="/img/userphoto.png">
             <div id="privilege">
                 [<span shiro:principal property="privilege"></span>]
             </div>
             <div id="username">
                 <span shiro:principal property="username"></span>
             </div>
-            <img id="userarrow" src="../img/arrow.png">
+            <img id="userarrow" src="/img/arrow.png">
         </div>
         <div id="quitlist">
             <ul>
@@ -40,7 +40,7 @@
             <shiro:hasPermission name="user:view">
                 <li>
                     <div class="list1">
-                        <div class="pic_list1" style="background-image: url('../img/usermanage.png')"></div>用户管理<div class="pic_list1_arrow"></div>
+                        <div class="pic_list1" style="background-image: url('/img/usermanage.png')"></div>用户管理<div class="pic_list1_arrow"></div>
                     </div>
                     <ul class="list2">
                         <a href="/user/userList" target="iframe">
@@ -67,7 +67,7 @@
             <shiro:hasPermission name="role:view">
                 <li>
                     <div class="list1">
-                        <div class="pic_list1" style="background-image: url('../img/rolemanage.png')"></div>角色管理<div class="pic_list1_arrow"></div>
+                        <div class="pic_list1" style="background-image: url('/img/rolemanage.png')"></div>角色管理<div class="pic_list1_arrow"></div>
                     </div>
                     <ul class="list2">
                         <a href="/role/roleList" target="iframe">
@@ -82,7 +82,7 @@
             <shiro:hasPermission name="permission:view">
                 <li>
                     <div class="list1">
-                        <div class="pic_list1" style="background-image: url('../img/permissionmanage.png')"></div>权限管理<div class="pic_list1_arrow"></div>
+                        <div class="pic_list1" style="background-image: url('/img/permissionmanage.png')"></div>权限管理<div class="pic_list1_arrow"></div>
                     </div>
                     <ul class="list2">
                         <a href="/permission/permissionList" target="iframe">

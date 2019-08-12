@@ -3,11 +3,14 @@ $("#quit").click(function (e){
     e.stopPropagation(); //阻止冒泡
     if($("#quitlist").is(':visible')){
         $("#quitlist").slideUp(300);
+        $("#userarrow").css("transform","rotate(0deg)");
     }
     else{
         $("#quitlist").slideDown(300);
+        $("#userarrow").css("transform","rotate(180deg)");
         $(document).one("click",function(){
             $("#quitlist").slideUp(300);
+            $("#userarrow").css("transform","rotate(0deg)");
         });
     }
 });
@@ -15,6 +18,7 @@ var iframe = document.getElementById("iframe");
 iframe.onload = function() {
     iframe.contentDocument.onclick = function () {
         $("#quitlist").slideUp(300);
+        $("#userarrow").css("transform","rotate(0deg)");
     }
 };
 
