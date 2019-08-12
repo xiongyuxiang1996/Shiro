@@ -28,6 +28,7 @@ body{
     top: 60px;
     bottom: 0;
     left: 0;
+    font-size: 0;
     background-color: #455667;
 }
 #right{
@@ -36,6 +37,7 @@ body{
     left: 220px;
     right: 0;
     bottom: 0;
+    font-size: 0;
     background-color: #F7F7F7;
 }
 #logo{
