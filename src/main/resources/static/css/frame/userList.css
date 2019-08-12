@@ -1,0 +1,152 @@
+*{
+    margin:0;
+    padding:0;
+}
+ul,li{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+html{
+    height:100%;
+    width: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+button,input:focus,textarea:focus {
+    outline: none;
+}
+#function{
+    position: absolute;
+    margin: auto;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: #FFFFFF;
+    border: solid 1px #CCCCCC;
+}
+#content{
+    position: absolute;
+    margin: auto;
+    top: 250px;
+    left: 10px;
+    right: 10px;
+    background-color: #FFFFFF;
+    border: solid 1px #CCCCCC;
+}
+#top{
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 50px;
+    position: relative;
+}
+#search{
+    height: 35px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+#search_button{
+    width: 50px;
+    height: 33px;
+    float: right;
+    border: solid 1px #CCCCCC;
+    border-left:0px;
+    border-radius: 0px 5px 5px 0px;
+    background-size: 100% 100%;
+    background-image: url('/img/search.png');
+    cursor: pointer;
+}
+#search_input{
+    width: 250px;
+    height: 33px;
+    float: right;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: solid 1px #CCCCCC;
+    border-radius: 5px 0px 0px 5px;
+    cursor: pointer;
+}
+#search_font{
+    width: 100px;
+    height: 35px;
+    float: right;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+}
+#search_input:hover{
+    border: solid 1px #999999;;
+}
+#search_button:hover{
+    border: solid 1px #999999;
+    border-left:0px;
+}
+#userdata{
+    margin: 10px;
+}
+#userlist{
+    width: 100%;
+    font-size: 15px;
+    border-collapse: collapse;
+    border: solid 1px #CCCCCC;
+}
+#userlist tr{
+    height: 60px;
+}
+#userlist tr:nth-child(1){
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    background-color: #EEF6F6!important;
+}
+#userlist tr:nth-child(2n+1){
+    background-color: #FAFAFA;
+}
+#userlist tr:hover{
+    background-color: #EEF6F6;
+}
+#userlist tr td{
+    text-align: center;
+}
+#bottom{
+    height: 50px;
+    margin: 10px;
+    line-height: 50px;
+    position: relative;
+    font-size: 14px;
+}
+#fenye{
+    height: 30px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 30px;
+}
+#fenye *{
+    float: left;
+}
+#fenye span{
+    margin: 0 5px 0 5px;
+}
+#totalcount{
+    height: 30px;
+    margin: 0 5px 0 0;
+}
+#pageNo{
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    margin: 0 -5px 0 -5px;
+    border: 1px solid #CCCCCC;
+}
