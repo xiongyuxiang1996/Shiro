@@ -1,6 +1,7 @@
 package com.shiro.Service;
 
 import com.shiro.Entity.User;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -15,5 +16,10 @@ import java.util.List;
 public interface UserService {
     List<User> findAll();
     User findByUsername(String username);
+    List<User> findUserList(@Param(value = "state") int state,
+                            @Param(value = "searchword") String searchword,
+                            @Param(value = "privilege") String privilege,
+                            @Param(value = "timeFrom") String timeFrom,
+                            @Param(value = "timeTo") String timeTo);
 }
 

@@ -4,6 +4,7 @@ import com.shiro.Dao.UserRepository;
 import com.shiro.Entity.User;
 import com.shiro.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,5 +28,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+    @Override
+    public List<User> findUserList(@Param(value = "state") int state,
+                                   @Param(value = "searchword") String searchword,
+                                   @Param(value = "privilege") String privilege,
+                                   @Param(value = "timeFrom") String timeFrom,
+                                   @Param(value = "timeTo") String timeTo){
+        return userRepository.findUserList(state,searchword,privilege,timeFrom,timeTo);
     }
 }

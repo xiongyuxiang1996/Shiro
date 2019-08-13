@@ -38,7 +38,13 @@ $.ajax({
     type: "post",
     url: "/user/getUserList",
     async: false,
-    data: {},
+    data: {
+        state: state,
+        searchword: searchword,
+        privilege: privilege,
+        timeFrom: timeFrom,
+        timeTo: timeTo
+    },
     success: function(data) {
         console.log(data);
         getUserList(data);
