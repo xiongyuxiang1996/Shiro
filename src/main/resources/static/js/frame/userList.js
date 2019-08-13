@@ -9,8 +9,19 @@ var pageCount;      //总页数
 var parameter = window.location.href.split("?")[1];
 var parameterList = parameter.split("&");
 var pageNo  = decodeURIComponent(parameterList[0]);     //页码
-
+var state = decodeURIComponent(parameterList[1]);       //状态
+var searchword = decodeURIComponent(parameterList[2]);  //查询词
+var privilege = decodeURIComponent(parameterList[3]);   //权限
+var timeFrom = decodeURIComponent(parameterList[4]);    //开始时间
+var timeTo = decodeURIComponent(parameterList[5]);      //结束时间
+console.log(parameterList);
 $("#pageNo").val(pageNo);
+$("#search_input").val(searchword);
+$("#privilege").val(privilege);
+$("#timeFrom").val(timeFrom);
+$("#timeTo").val(timeTo);
+$("button#"+state).removeClass("state_unchose").addClass('state_chose');
+
 $(document).ready(function(){
     $("#page").paging({
         nowPage: Number(pageNo),    // 当前页码,默认为1
@@ -78,6 +89,24 @@ function insertHtml(start,end) {
     }
 }
 
+// 点击用户状态
+$(".state").click(function (e){
+    // e.stopPropagation(); //阻止冒泡
+    $(this).parent().find("button").removeClass("state_chose").addClass("state_unchose");
+    $(this).removeClass("state_unchose");
+    $(this).addClass('state_chose');
+    state = $(this).attr("id");
+    refresh();
+    console.log(state)
+});
+
+// 点击搜索
+$("#search_button").click(function (){
+    searchword = $("#search_input").val();
+    refresh();
+    console.log(searchword)
+});
+
 // 页码跳转输入框失去焦点后跳转页面
 $("#pageNo").blur( function(){
     // console.log(pageNo);
@@ -100,5 +129,8 @@ $("#pageNo").blur( function(){
 
 // 刷新页面
 var refresh = function () {
-    window.location.href = "?" + pageNo
+    var privilege = $("#privilege").val();
+    var timeFrom = $("#timeFrom").val();
+    var timeTo = $("#timeTo").val();
+    window.location.href = "?" + pageNo + "&" + state + "&" + searchword + "&" + privilege + "&" + timeFrom + "&" + timeTo;
 };

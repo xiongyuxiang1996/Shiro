@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
     <meta charset="UTF-8">
     <title>用户列表</title>
@@ -10,7 +10,37 @@
 </head>
 <body>
     <div id="function">
-        123
+        <div id="function_in">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td class="title">用户权限</td>
+                    <td class="list">
+                        <input class="input" id="privilege" placeholder="请选择用户权限" >
+                    </td>
+                    <td class="blank"></td>
+                    <td class="title">创建时间</td>
+                    <td class="list">
+                        <input class="input" id="timeFrom" placeholder="请选择开始时间">
+                        <span class="span">至</span>
+                        <input class="input" id="timeTo" placeholder="请选择结束时间">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title">用户状态</td>
+                    <td colspan="3">
+                        <button id="-1" class="state state_unchose">全部</button>
+                        <button id="0" class="state state_unchose">未认证</button>
+                        <button id="1" class="state state_unchose">已认证</button>
+                        <button id="2" class="state state_unchose">已锁定</button>
+                    </td>
+                    <td>
+                        <shiro:hasPermission name="user:add">
+                            <button id="add">新增用户</button>
+                        </shiro:hasPermission>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div id="content">
         <div id="top">

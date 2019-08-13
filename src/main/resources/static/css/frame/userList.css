@@ -16,6 +16,11 @@ body{
     height: 100%;
     position: relative;
 }
+input{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
 button,input:focus,textarea:focus {
     outline: none;
 }
@@ -28,10 +33,110 @@ button,input:focus,textarea:focus {
     background-color: #FFFFFF;
     border: solid 1px #CCCCCC;
 }
+#function_in{
+    margin: 10px;
+    padding: 20px;
+    background-color: #F7F7F7;
+}
+#function_in table{
+    width: 100%;
+}
+#function_in table tr td{
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+}
+.title{
+    width: 10%;
+    text-align: center;
+}
+.list{
+    width: 36%;
+}
+
+.blank{
+    width: 8%;
+    text-align: center;
+}
+.span{
+    width: 12%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+}
+.input{
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 35px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    border: solid 1px #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+}
+.input:hover{
+    border: solid 1px #999999;
+}
+.input:focus{
+    border: solid 1px #00BC9E;
+}
+#privilege{
+    width: 50%;
+}
+#timeFrom{
+    width: 44%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+}
+#timeTo{
+    width: 44%;
+    position: absolute;
+    margin: auto;
+    right: 0;
+}
+.state{
+    height: 26px;
+    float: left;
+    margin-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+    border-radius: 25px 25px 25px 25px;
+    cursor: pointer;
+}
+.state_chose {
+    color: #FFFFFF;
+    background-color: #539CDB;
+    border: solid 1px #3189D4;
+}
+.state_unchose{
+    color: #000000;
+    background-color: #F7F7F7;
+    border: solid 1px #F7F7F7;
+}
+#add{
+    height: 35px;
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #539CDB;
+    border: solid 1px #3189D4;
+    border-radius: 25px 25px 25px 25px;
+    cursor: pointer;
+}
 #content{
     position: absolute;
     margin: auto;
-    top: 250px;
+    top: 200px;
     left: 10px;
     right: 10px;
     background-color: #FFFFFF;
