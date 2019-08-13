@@ -17,7 +17,8 @@ $(document).ready(function(){
         pageNum: Number(pageCount), // 总页码
         buttonNum: 9,               //要展示的页码数量，默认为7，若小于5则为5
         callback: function(num){   //回调函数,num为当前页码
-            console.log(num);
+            pageNo = num;
+            refresh();
         }
     });
 });
@@ -76,3 +77,28 @@ function insertHtml(start,end) {
         $("#userlist").append(strhtml);
     }
 }
+
+// 页码跳转输入框失去焦点后跳转页面
+$("#pageNo").blur( function(){
+    // console.log(pageNo);
+    // 页码发生改变
+    if(pageNo != $(this).val()){
+        // 页码小于最小页码
+        if($(this).val() < 1){
+            pageNo = 1;
+        }
+        // 页码大于最大页码
+        else if($(this).val() > pageCount){
+            pageNo = pageCount;
+        }
+        else{
+            pageNo = $(this).val();
+        }
+        refresh();
+    }
+});
+
+// 刷新页面
+var refresh = function () {
+    window.location.href = "?" + pageNo
+};

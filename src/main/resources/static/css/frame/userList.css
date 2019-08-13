@@ -143,10 +143,9 @@ button,input:focus,textarea:focus {
     margin: 0 5px 0 0;
 }
 #pageNo{
-    width: 28px;
+    width: 25px;
     height: 28px;
     text-align: center;
     line-height: 28px;
-    margin: 0 -5px 0 -5px;
     border: 1px solid #CCCCCC;
 }

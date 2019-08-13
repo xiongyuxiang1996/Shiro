@@ -134,7 +134,8 @@
             var pageNum = me.options.pageNum;
             if (nowPage === 1) {
                 me.element.children().children('.xl-prevPage').addClass('xl-disabled');
-            } else if (nowPage === pageNum) {
+            }
+            if (nowPage === pageNum) {
                 me.element.children().children('.xl-nextPage').addClass('xl-disabled');
             }
         }
