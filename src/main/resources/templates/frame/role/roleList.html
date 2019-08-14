@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
     <meta charset="UTF-8">
     <title>角色列表</title>
+    <link rel="stylesheet" href="../css/frame/roleList.css"/>
+    <script type="text/javascript" src="../js/tools/jquery-3.3.1.min.js"></script>
+    <!--分页插件-->
+    <link rel="stylesheet" href="../css/tools/xlPaging.css"/>
+    <script type="text/javascript" src="../js/tools/xlPaging.js"></script>
 </head>
 <body>
-    <h2>角色列表页面</h2>
+    <div id="function">
+        <div id="function_in">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td class="title">角色状态</td>
+                    <td colspan="4">
+                        <button id="-1" class="state state_unchose">全部</button>
+                        <button id="0" class="state state_unchose">已启用</button>
+                        <button id="1" class="state state_unchose">已冻结</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="content">
+        <div id="top">
+            <div id="search">
+                <div id="search_button"></div>
+                <input id="search_input" placeholder="请输入名称进行搜索" autocomplete="off">
+                <div id="search_font">搜索</div>
+            </div>
+        </div>
+        <div id="roledata">
+            <table id="rolelist" cellpadding="0" cellspacing="0" border="1px">
+                <tr>
+                    <td style="width: 6%;">序号</td>
+                    <td style="width: 20%;">名称</td>
+                    <td style="width: 44%;">简介</td>
+                    <td style="width: 10%;">状态</td>
+                    <td style="width: 20%;">操作</td>
+                </tr>
+            </table>
+        </div>
+        <div id="bottom">
+            <div id="fenye">
+                <div id="totalcount"></div>
+                <div id="page"></div>
+                <span>前往第</span><input id="pageNo"><span>页</span>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../js/frame/roleList.js"></script>
 </body>
 </html>
