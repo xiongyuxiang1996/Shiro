@@ -1,6 +1,7 @@
 package com.shiro.Service;
 
 import com.shiro.Entity.Role;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -13,5 +14,6 @@ import java.util.List;
  * @Description
  */
 public interface RoleService {
-    List<Role> findRoleList();
+    List<Role> findRoleList(@Param(value = "state") int state,
+                            @Param(value = "searchword") String searchword);
 }

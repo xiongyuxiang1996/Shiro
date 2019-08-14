@@ -33,7 +33,10 @@ $.ajax({
     type: "post",
     url: "/role/getRoleList",
     async: false,
-    data: {},
+    data: {
+        state: state,
+        searchword: searchword
+    },
     success: function(data) {
         console.log(data);
         getRoleList(data);

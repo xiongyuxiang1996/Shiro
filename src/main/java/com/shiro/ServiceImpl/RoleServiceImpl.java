@@ -4,6 +4,7 @@ import com.shiro.Dao.RoleRepository;
 import com.shiro.Entity.Role;
 import com.shiro.Service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,8 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleRepository roleRepository;
     @Override
-    public List<Role> findRoleList(){
-        return roleRepository.findRoleList();
+    public List<Role> findRoleList(@Param(value = "state") int state,
+                                   @Param(value = "searchword") String searchword){
+        return roleRepository.findRoleList(state,searchword);
     }
 }
