@@ -20,7 +20,7 @@ $("#search_input").val(searchword);
 $("#privilege").val(privilege);
 $("#timeFrom").val(timeFrom);
 $("#timeTo").val(timeTo);
-$("button#"+state).removeClass("state_unchose").addClass('state_chose');
+$("button#" + state).removeClass("state_unchose").addClass('state_chose');
 
 // 日历插件
 $(function () {
@@ -128,19 +128,16 @@ $(".state").click(function (e){
     $(this).addClass('state_chose');
     state = $(this).attr("id");
     refresh();
-    console.log(state)
 });
 
 // 点击搜索
 $("#search_button").click(function (){
     searchword = $("#search_input").val();
     refresh();
-    console.log(searchword)
 });
 
 // 页码跳转输入框失去焦点后跳转页面
 $("#pageNo").blur( function(){
-    // console.log(pageNo);
     // 页码发生改变
     if(pageNo != $(this).val()){
         // 页码小于最小页码
