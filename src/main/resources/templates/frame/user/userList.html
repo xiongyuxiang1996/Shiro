@@ -5,8 +5,12 @@
     <title>用户列表</title>
     <link rel="stylesheet" href="../css/frame/userList.css"/>
     <script type="text/javascript" src="../js/tools/jquery-3.3.1.min.js"></script>
+    <!--分页插件-->
     <link rel="stylesheet" href="../css/tools/xlPaging.css"/>
     <script type="text/javascript" src="../js/tools/xlPaging.js"></script>
+    <!--时间插件-->
+    <link rel="stylesheet" href="../css/tools/jedate/jedate.css"/>
+    <script type="text/javascript" src="../js/tools/jedate.js"></script>
 </head>
 <body>
     <div id="function">
@@ -15,14 +19,14 @@
                 <tr>
                     <td class="title">用户权限</td>
                     <td class="list">
-                        <input class="input" id="privilege" placeholder="请选择用户权限" >
+                        <input class="input" id="privilege" placeholder="请选择用户权限" readonly>
                     </td>
                     <td class="blank"></td>
                     <td class="title">创建时间</td>
                     <td class="list">
-                        <input class="input" id="timeFrom" placeholder="请选择开始时间">
+                        <input class="input" id="timeFrom" placeholder="请选择开始时间" readonly>
                         <span class="span">至</span>
-                        <input class="input" id="timeTo" placeholder="请选择结束时间">
+                        <input class="input" id="timeTo" placeholder="请选择结束时间" readonly>
                     </td>
                 </tr>
                 <tr>

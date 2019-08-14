@@ -22,6 +22,31 @@ $("#timeFrom").val(timeFrom);
 $("#timeTo").val(timeTo);
 $("button#"+state).removeClass("state_unchose").addClass('state_chose');
 
+// 日历插件
+$(function () {
+    jeDate("#timeFrom",{
+        theme:{ bgcolor:"#00A1CB",color:"#ffffff", pnColor:"#00CCFF"},
+        format:"YYYY-MM-DD hh:mm:ss",
+        onClose:false,
+        minDate:"2015-01-01 00:00:00",
+        donefun: function(obj){
+            console.log(obj.val);
+            refresh();
+        }
+    });
+    jeDate("#timeTo",{
+        theme:{ bgcolor:"#00A1CB",color:"#ffffff", pnColor:"#00CCFF"},
+        format:"YYYY-MM-DD hh:mm:ss",
+        onClose:false,
+        minDate:"2015-01-01 00:00:00",
+        donefun: function(obj){
+            console.log(obj.val);
+            refresh();
+        }
+    });
+});
+
+// 分页插件
 $(document).ready(function(){
     $("#page").paging({
         nowPage: Number(pageNo),    // 当前页码,默认为1
