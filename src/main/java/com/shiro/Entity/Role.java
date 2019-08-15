@@ -21,7 +21,7 @@ public class Role {
     @GeneratedValue(generator = "generator")
     private Integer roleId;                     // 编号
     @Column(nullable = false, unique = true)
-    private String role;                        // 角色标识程序中判断使用,如"admin",这个是唯一的:
+    private String roleName;                        // 角色标识程序中判断使用,如"admin",这个是唯一的:
     private String description;                 // 角色描述,UI界面显示使用
     private Boolean available = Boolean.TRUE;   // 是否可用,如果不可用将不会添加给用户
 
@@ -45,12 +45,12 @@ public class Role {
         this.roleId = roleId;
     }
 
-    public String getRole() {
-        return role;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public String getDescription() {

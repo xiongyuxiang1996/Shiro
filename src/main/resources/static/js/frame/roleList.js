@@ -70,7 +70,7 @@ function insertHtml(start,end) {
         var no = i + 1;
         var strhtml = '<tr id="' + i + '" arrId="' + i + '">';
         strhtml = strhtml + '<td>' + no + '</td>';
-        strhtml = strhtml + '<td>' + roleinfo.role + '</td>';
+        strhtml = strhtml + '<td>' + roleinfo.roleName + '</td>';
         strhtml = strhtml + '<td>' + roleinfo.description + '</td>';
         if (roleinfo.available == 0) {
             strhtml = strhtml + '<td>已启用</td>';
