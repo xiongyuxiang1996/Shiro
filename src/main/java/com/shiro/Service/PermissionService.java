@@ -1,6 +1,7 @@
 package com.shiro.Service;
 
 import com.shiro.Entity.Permission;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -13,5 +14,5 @@ import java.util.List;
  * @Description
  */
 public interface PermissionService {
-    List<Permission> findPermissionList();
+    List<Permission> findPermissionList(@Param(value = "state") int state);
 }

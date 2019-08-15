@@ -6,10 +6,7 @@ import com.shiro.Service.PermissionService;
 import com.shiro.Util.ResultUtil;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,8 +28,8 @@ public class PermissionController {
     @RequiresPermissions("permission:list")
     @RequestMapping(value = "/getPermissionList",method = RequestMethod.POST)
     @ResponseBody
-    public Result<Object> getUserList() {
-        List<Permission> roleList = permissionService.findPermissionList();
+    public Result<Object> getUserList(@RequestParam(value = "state",required = true)int state) {
+        List<Permission> roleList = permissionService.findPermissionList(state);
         return ResultUtil.success("获取权限列表成功",roleList);
     }
 }

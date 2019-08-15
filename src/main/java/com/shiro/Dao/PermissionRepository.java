@@ -3,6 +3,7 @@ package com.shiro.Dao;
 import com.shiro.Entity.Permission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @Description
  */
 public interface PermissionRepository extends JpaRepository<Permission,Integer> {
-    @Query(value = "select * from permission p",nativeQuery = true)
-    List<Permission> findPermissionList();
+    @Query(value = "select * from permission p " +
+            "where if(?1 != -1,p.available = ?1,1 = 1)",nativeQuery = true)
+    List<Permission> findPermissionList(@Param(value = "state") int state);
 }
