@@ -28,8 +28,17 @@ public class PermissionController {
     @RequiresPermissions("permission:list")
     @RequestMapping(value = "/getPermissionList",method = RequestMethod.POST)
     @ResponseBody
-    public Result<Object> getUserList(@RequestParam(value = "state",required = true)int state) {
+    public Result<Object> getPermissionList(@RequestParam(value = "state",required = true)int state) {
         List<Permission> roleList = permissionService.findPermissionList(state);
         return ResultUtil.success("获取权限列表成功",roleList);
+    }
+
+    // 权限删除
+    @RequiresPermissions("permission:del")
+    @RequestMapping(value = "/deletePermission",method = RequestMethod.POST)
+    @ResponseBody
+    public Result<Object> deletePermission(@RequestParam(value = "permissionId",required = true)int permissionId) {
+        permissionService.deleteByPermissionId(permissionId);
+        return ResultUtil.success("权限删除成功");
     }
 }

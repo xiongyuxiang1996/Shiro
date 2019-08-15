@@ -2,6 +2,7 @@ package com.shiro.Dao;
 
 import com.shiro.Entity.Permission;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -19,4 +20,8 @@ public interface PermissionRepository extends JpaRepository<Permission,Integer> 
     @Query(value = "select * from permission p " +
             "where if(?1 != -1,p.available = ?1,1 = 1)",nativeQuery = true)
     List<Permission> findPermissionList(@Param(value = "state") int state);
+
+    @Modifying
+    @Query(value = "delete from permission where permissionId = ?1",nativeQuery = true)
+    void deleteByPermissionId(@Param(value = "permissionId") int permissionId);
 }

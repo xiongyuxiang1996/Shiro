@@ -2,6 +2,7 @@ package com.shiro.Service;
 
 import com.shiro.Entity.Permission;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,8 @@ import java.util.List;
  * @Time 17:43
  * @Description
  */
+@Transactional
 public interface PermissionService {
     List<Permission> findPermissionList(@Param(value = "state") int state);
+    void deleteByPermissionId(@Param(value = "permissionId") int permissionId);
 }

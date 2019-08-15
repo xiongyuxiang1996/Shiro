@@ -28,7 +28,7 @@ public class RoleController {
     @RequiresPermissions("role:list")
     @RequestMapping(value = "/getRoleList",method = RequestMethod.POST)
     @ResponseBody
-    public Result<Object> getUserList(@RequestParam(value = "state",required = true)int state,
+    public Result<Object> getRoleList(@RequestParam(value = "state",required = true)int state,
                                       @RequestParam(value = "searchword",required = false)String searchword) {
         List<Role> roleList = roleService.findRoleList(state,searchword);
         return ResultUtil.success("获取角色列表成功",roleList);

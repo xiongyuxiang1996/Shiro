@@ -25,4 +25,8 @@ public class PermissionServiceImpl implements PermissionService {
     public List<Permission> findPermissionList(@Param(value = "state") int state){
         return permissionRepository.findPermissionList(state);
     }
+    @Override
+    public void deleteByPermissionId(@Param(value = "permissionId") int permissionId){
+        permissionRepository.deleteByPermissionId(permissionId);
+    }
 }
