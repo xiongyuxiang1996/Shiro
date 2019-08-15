@@ -5,9 +5,11 @@
     <title>权限列表</title>
     <link rel="stylesheet" href="../css/frame/permissionList.css"/>
     <script type="text/javascript" src="../js/tools/jquery-3.3.1.min.js"></script>
-    <!--分页插件-->
-    <link rel="stylesheet" href="../css/tools/xlPaging.css"/>
-    <script type="text/javascript" src="../js/tools/xlPaging.js"></script>
+    <!--树型选择插件-->
+    <link rel="stylesheet" href="../css/tools/zTreeStyle.css"/>
+    <script type="text/javascript" src="../js/tools/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="../js/tools/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="../js/tools/jquery.ztree.exedit.js"></script>
 </head>
 <body>
     <div id="function">
@@ -25,24 +27,8 @@
         </div>
     </div>
     <div id="content">
-        <div id="permissiondata">
-            <table id="permissionlist" cellpadding="0" cellspacing="0" border="1px">
-                <tr>
-                    <td style="width: 6%;">序号</td>
-                    <td style="width: 20%;">名称</td>
-                    <td style="width: 34%;">链接</td>
-                    <td style="width: 10%;">类型</td>
-                    <td style="width: 10%;">状态</td>
-                    <td style="width: 20%;">操作</td>
-                </tr>
-            </table>
-        </div>
-        <div id="bottom">
-            <div id="fenye">
-                <div id="totalcount"></div>
-                <div id="page"></div>
-                <span>前往第</span><input id="pageNo"><span>页</span>
-            </div>
+        <div id="permissiondata" class="zTreeDemoBackground left">
+            <ul id="treeList" class="ztree"></ul>
         </div>
     </div>
 

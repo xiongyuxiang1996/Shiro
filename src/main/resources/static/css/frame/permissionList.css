@@ -79,60 +79,6 @@ button,input:focus,textarea:focus {
 #permissiondata{
     margin: 10px;
 }
-#permissionlist{
-    width: 100%;
-    font-size: 15px;
-    border-collapse: collapse;
-    border: solid 1px #CCCCCC;
-}
-#permissionlist tr{
-    height: 60px;
-}
-#permissionlist tr:nth-child(1){
-    height: 40px;
-    line-height: 40px;
-    font-weight: bold;
-    background-color: #EEF6F6!important;
-}
-#permissionlist tr:nth-child(2n+1){
-    background-color: #FAFAFA;
-}
-#permissionlist tr:hover{
-    background-color: #EEF6F6;
-}
-#permissionlist tr td{
-    text-align: center;
-}
-#bottom{
-    height: 50px;
-    margin: 10px;
-    line-height: 50px;
-    position: relative;
-    font-size: 14px;
-}
-#fenye{
-    height: 30px;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    line-height: 30px;
-}
-#fenye *{
-    float: left;
-}
-#fenye span{
-    margin: 0 5px 0 5px;
-}
-#totalcount{
-    height: 30px;
-    margin: 0 5px 0 0;
-}
-#pageNo{
-    width: 25px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    border: 1px solid #CCCCCC;
+#permissiondata div{
+   text-align: center;
 }
