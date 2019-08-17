@@ -75,8 +75,20 @@ function onClick(event, treeId, treeNode) {
     console.log(treeNode.id);
 }
 function onRemove(event, treeId, treeNode) {
-    console.log("删除");
-    console.log(treeNode.id);
+    $.ajax({
+        type: "post",
+        url: "/permission/deletePermission",
+        async: false,
+        data: {
+            permissionId: treeNode.id
+        },
+        success: function(data) {
+            console.log(data);
+        },
+        error: function (data) {
+            console.log(data);
+        }
+    });
 }
 
 // 刷新页面

@@ -22,6 +22,6 @@ public interface PermissionRepository extends JpaRepository<Permission,Integer> 
     List<Permission> findPermissionList(@Param(value = "state") int state);
 
     @Modifying
-    @Query(value = "delete from permission where permissionId = ?1",nativeQuery = true)
+    @Query(value = "update permission set available = 1 where permissionId = ?1 or (?1) IN parentId",nativeQuery = true)
     void deleteByPermissionId(@Param(value = "permissionId") int permissionId);
 }
