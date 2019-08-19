@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50722
 File Encoding         : 65001
 
-Date: 2019-08-05 17:53:32
+Date: 2019-08-19 09:25:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,16 +29,22 @@ CREATE TABLE `permission` (
   `parentIds` varchar(255) DEFAULT NULL COMMENT '父编号列表',
   `available` bit(1) DEFAULT NULL COMMENT '是否可用,如果不可用将不会添加给用户',
   PRIMARY KEY (`permissionId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of permission
 -- ----------------------------
-INSERT INTO `permission` VALUES ('1', '用户管理', 'user/userList', 'user:view', 'menu', '0', '0/', '\0');
-INSERT INTO `permission` VALUES ('2', '用户添加', 'user/userAdd', 'user:add', 'button', '1', '0/1', '\0');
-INSERT INTO `permission` VALUES ('3', '用户删除', 'user/userDel', 'user:del', 'button', '1', '0/1', '\0');
-INSERT INTO `permission` VALUES ('4', '角色管理', 'role/roleList', 'role:view', 'menu', '0', '0/', '\0');
-INSERT INTO `permission` VALUES ('5', '权限管理', 'permission/permissionList', 'permission:view', 'menu', '0', '0/', '\0');
+INSERT INTO `permission` VALUES ('1', '用户管理', '', 'user:view', 'menu', '0', '0,', '\0');
+INSERT INTO `permission` VALUES ('2', '用户列表', 'user/userList', 'user:list', 'menu', '1', '0,1', '\0');
+INSERT INTO `permission` VALUES ('3', '用户添加', 'user/userAdd', 'user:add', 'button', '1', '0,1', '\0');
+INSERT INTO `permission` VALUES ('4', '用户删除', 'user/userDel', 'user:del', 'button', '1', '0,1', '\0');
+INSERT INTO `permission` VALUES ('5', '角色管理', '', 'role:view', 'menu', '0', '0,', '\0');
+INSERT INTO `permission` VALUES ('6', '角色列表', 'role/roleList', 'role:list', 'menu', '5', '0,5', '\0');
+INSERT INTO `permission` VALUES ('7', '权限管理', '', 'permission:view', 'menu', '0', '0,', '\0');
+INSERT INTO `permission` VALUES ('8', '权限列表', 'permission/permissionList', 'permission:list', 'menu', '7', '0,7', '\0');
+INSERT INTO `permission` VALUES ('9', '权限添加', 'permission/permissionAdd', 'permission:add', 'menu', '7', '0,7', '\0');
+INSERT INTO `permission` VALUES ('10', '权限删除', 'permission/permissionDel', 'permission:del', 'menu', '7', '0/7', '\0');
+INSERT INTO `permission` VALUES ('11', '测试', null, null, null, null, null, '');
 
 -- ----------------------------
 -- Table structure for role
@@ -46,11 +52,11 @@ INSERT INTO `permission` VALUES ('5', '权限管理', 'permission/permissionList
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
   `roleId` int(11) NOT NULL AUTO_INCREMENT,
-  `role` varchar(255) NOT NULL COMMENT '角色标识程序中判断使用,如"admin",这个是唯一的:',
+  `roleName` varchar(255) NOT NULL COMMENT '角色标识程序中判断使用,如"admin",这个是唯一的:',
   `description` varchar(255) DEFAULT NULL COMMENT '角色描述,UI界面显示使用',
   `available` bit(1) DEFAULT NULL COMMENT '是否可用,如果不可用将不会添加给用户',
   PRIMARY KEY (`roleId`),
-  UNIQUE KEY `UK_33x416oeil31hpge9a6qc8jau` (`role`)
+  UNIQUE KEY `UK_33x416oeil31hpge9a6qc8jau` (`roleName`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -76,50 +82,19 @@ CREATE TABLE `rolepermission` (
 -- Records of rolepermission
 -- ----------------------------
 INSERT INTO `rolepermission` VALUES ('1', '1');
+INSERT INTO `rolepermission` VALUES ('1', '2');
+INSERT INTO `rolepermission` VALUES ('1', '3');
 INSERT INTO `rolepermission` VALUES ('1', '4');
 INSERT INTO `rolepermission` VALUES ('1', '5');
-INSERT INTO `rolepermission` VALUES ('1', '3');
-INSERT INTO `rolepermission` VALUES ('1', '2');
+INSERT INTO `rolepermission` VALUES ('1', '6');
+INSERT INTO `rolepermission` VALUES ('1', '7');
+INSERT INTO `rolepermission` VALUES ('1', '8');
 INSERT INTO `rolepermission` VALUES ('2', '1');
 INSERT INTO `rolepermission` VALUES ('2', '2');
 INSERT INTO `rolepermission` VALUES ('2', '3');
-
--- ----------------------------
--- Table structure for syspermission
--- ----------------------------
-DROP TABLE IF EXISTS `syspermission`;
-CREATE TABLE `syspermission` (
-  `permissionId` int(11) NOT NULL AUTO_INCREMENT,
-  `available` bit(1) DEFAULT NULL,
-  `parentId` bigint(20) DEFAULT NULL,
-  `parentIds` varchar(255) DEFAULT NULL,
-  `permission` varchar(255) DEFAULT NULL,
-  `permissionName` varchar(255) NOT NULL,
-  `resourceType` enum('menu','button') DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`permissionId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of syspermission
--- ----------------------------
-
--- ----------------------------
--- Table structure for sysrole
--- ----------------------------
-DROP TABLE IF EXISTS `sysrole`;
-CREATE TABLE `sysrole` (
-  `roleId` int(11) NOT NULL AUTO_INCREMENT,
-  `available` bit(1) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `role` varchar(255) NOT NULL,
-  PRIMARY KEY (`roleId`),
-  UNIQUE KEY `UK_8sggqkp1sv8guimk979mf6anf` (`role`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of sysrole
--- ----------------------------
+INSERT INTO `rolepermission` VALUES ('2', '4');
+INSERT INTO `rolepermission` VALUES ('1', '9');
+INSERT INTO `rolepermission` VALUES ('1', '10');
 
 -- ----------------------------
 -- Table structure for user
@@ -141,7 +116,7 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '管理员', 'admin', 'd3c59d25033dbf980d29554025c23a75', '8d78869f470951332959580424d4bf4f', '1', '2019-08-01 15:52:20');
-INSERT INTO `user` VALUES ('2', '测试', 'test', 'edcb78ff1df79647affccd8241b260e7', 's6a54d3aw4d81c32as1d98a4w3w98e4d', '1', '2019-08-01 15:52:20');
+INSERT INTO `user` VALUES ('2', '测试', 'test', 'edcb78ff1df79647affccd8241b260e7', 's6a54d3aw4d81c32as1d98a4w3w98e4d', '1', '2019-08-03 15:52:20');
 
 -- ----------------------------
 -- Table structure for userrole
